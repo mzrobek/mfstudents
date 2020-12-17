@@ -16,8 +16,10 @@
  DELETE @dump_dsn@
  SET MAXCC=0
 //ALLOC      EXEC PGM=IEFBR14
+//** Make sure that the SPACE parameters are exactly the same
+//** as for the DUMP dataset which was created by job MAKEDMP
 //DUMPDS     DD DISP=(NEW,CATLG,DELETE),
 //           DSN=@dump_dsn@,
 //           DSORG=PS,RECFM=U,LRECL=0,
-//           SPACE=(TRK,(200,100)), Adjust space to your needs
+//           SPACE=(TRK,(200,100)),
 //           BLKSIZE=27998 ,VOL=SER=@vol@
